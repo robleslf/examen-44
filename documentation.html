@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="assests/css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>EXAMEN PRÁCTICO MF0968</h1>
+    <main>
+        <h2>
+            1) Crea un nuevo usuario en tu sistema Wordpress cuya única finalidad sea la auditoría y control del
+            del CMS.
+            Realiza las capturas de pantalla tanto del area de usuarios como de la base datos en las que se
+            evidencie este nuevo usuario (3 ptos)
+        </h2>
+            <p>Lo primero que haremos será dirigirnos al panel de administración de nuestro repositorio; por lo general, si estás trabajando en tu servidor local, la url suele ser <a href="http://localhost/wordpress/wp-admin">http://localhost/wordpress/wp-admin</a>.</p>
+
+            <p>Una vez dentro, en el panel lateral izquierdo seleccionaremos la pestaña <strong>Usuarios</strong>, y a continuación elegiremos la opción <strong>Añadir nuevo</strong>.S</p>
+            <img src="assests/img/001.png" alt="Añadir nuevo usuario">
+
+            <p>Una vez dentro será cuestión de rellenar los datos. Hay que prestar especial importancia a la opción <strong>Perfil</strong>. De momento vamos a seleccionar el perfil más restrictivo y con menos privilegios, que es <strong>Suscriptor</strong>, pero hay que tener en cuenta que así no podrá tener acceso al panel de administración, por lo que es muy posible que sea necesario el uso de un complemento de seguridad o de roles de usuario personalizados para personalizar los permisos según nuestras necesidades específicas. Estos complementos permiten crear roles personalizados con permisos específicos.</p>
+            <img src="assests/img/002.png" alt="Rellenar datos y selecciona perfil">
+
+            <p>Ahora vamos a comprobar que el usuario se ha creado correctamente. Primero lo haremos en el propio WordPress. Basta con volver a la pestaña <strong>Usuarios</strong> del panel izquierdo y buscar el recién creado usuario.</p>
+            <img src="assests/img/003.png" alt="Comprobando el usuario en el panel de administración de WordPress">
+
+            <p>Haremos la misma comprobación en la base de datos. En este caso utilizaremos phpMyAdmin, pero se puede utilizar otro software o comprobarlo desde la terminal.</p>
+            <img src="assests/img/004.png" alt="Comprobando el usuario en la base de datos de WordPress">
+        <h2>2) Diseña un plan de auditoría para el CMS (7 ptos)</h2>
+
+            <h3>Objetivos</h3>
+            <ul>
+                <li>Revisar la configuración básica de nuestro CMS.</li>
+                <li>Detectar errores para su posterior solución.</li>
+                <li>Impulsar el posicionamiento de nuestro CMS en los motores de búsqueda.</li>
+            </ul>
+
+            <h3>SEO técnico</h3>
+                <h4>Revisión de los Ajustes de WordPress</h4>
+                    En el panel de admninistración de nuestro CMS en WordPress se habrán de revisar tanto el título del sitio, su descripción y el título de las URLs. Todos deben ser fácilmente leíbles e identificables con el tema de nuestro repositorio, para que los usuarios puedan localizarlos de forma fácil e intuitiva.
+
+                <h4>Revisión de Plugins</h4>
+
+                <p>Se habrán de revisar los plugins instalados, incluyendo también a los inactivos, y comprobar aquellos que tengan actualizaciones pendientes, y valorar la desinstalación de aquellos que no se están usando.</p>
+
+                <h4>Revisión de Archivos</h4>
+                <p>Se revisará especialmente:</p>
+                    <ul>
+                        <li><strong>Sitemap.xml</strong>. Esta especie de índice del sitio web indica a los buscadores las URLs que nos interesa posicionar. Este archivo se puede crear automáticamente a través del plugin <a href="https://yoast.com/wordpress/plugins/seo/?gclid=Cj0KCQjw0vWnBhC6ARIsAJpJM6foRWMq5MQOd9ISLn3Lr5NabwLtV-gnqMR76SDLA0iR8XDi4bDWFmUaAhAeEALw_wcB" target="_blank">Yoast SEO</a> activando la siguiente opción en los ajustes generales del plugin</li>
+                        <li><strong>Robots.txt</strong>. Este archivo nos permite indicarle a los buscadores que URLs deben rastrear y cuáles no y de este modo optimizar el presupuesto de rastreo. WordPress genera de forma automática este archivo con la siguiente información:
+
+                            User-agent: *
+                            
+                            Disallow: /wp-admin/
+                            
+                            Allow: /wp-admin/admin-ajax.php
+                            
+                            Y se puede editar directamente desde el editor de archivos del plugin Yoast SEO, donde podrás añadir las líneas que sean necesarias.
+                            
+                            Además, en este archivo se debe incluir el sitemap para que Google lo rastree.</li>
+                    </ul>
+
+                <h4>Velocidad de carga</h4>
+                    <p>Se revisará la velocidad de carga. Para analizar este apartado se hará uso de herramientas externas como WebPageTest o Page Speed Insights, en las que se puede medir la velocidad de la web y ver los puntos que necesita mejorar.</p>
+            
+            <h3>SEO on page</h3>
+
+                <p>En este apartado de la auditoría wordpress vamos a revisar los puntos de SEO On Page que necesitarán estar optimizados para lograr un buen posicionamiento y que se pueden trabajar desde plugins como Yoast SEO.</p>
+
+                <h4>Indexación</h4>
+                    <p>En primer lugar, vamos a hablar de la indexación. Este punto se refiere a las URLs que Google incluye en su índice y muestra en las SERPs. Para conocer qué páginas de tu web se están indexando puedes buscar site: y tu URL.</p>
+
+                    <p>Para trabajar este apartado puedes hacerlo desde  la pestaña de Yoast “Apariencia en el buscador” y seleccionar los tipos de contenido que se quieren indexar (entradas, páginas, categorías, etc) Simplemente hay que marcar en cada tipo de contenido si lo queremos indexar o no.</p>
+
+
+                <h4>Títulos y meta descripciones </h4>
+                    <p>Cada URL debe tener un título y una meta descripción únicos y que describan su contenido, ajustándose a la extensión que marca Google.Estos títulos y meta descripciones se pueden generar automáticamente siguiendo una estructura fija, pero lo ideal es optimizarlos manualmente, incluyendo su palabra clave principal y creandolos de forma atractiva para lograr un mayor CTR.</p>
+
+                <h4>URLs amigables</h4>
+                
+                    <p>Las URLs de tu sitio web deben ser simples y fáciles de leer tanto para Google como para los usuarios.</p>
+
+                    <p>Para que una URL sea amigable no debe incluir signos extraños, ni acentos, ni numeraciones. Este elemento se puede editar al crear una nueva página en el apartado “Slug”.</p>
+                    
+                <h4>Imágenes</h4>
+                    <p>Otro punto fundamental al realizar una auditoría wordpress son las imágenes. Contar con un sitio web con las imágenes sin optimizar afectará a la velocidad de carga y a su posicionamiento.</p> 
+                    
+                    <p>En este punto es importante tener en cuenta su tamaño, que se recomienda que sea inferior a 100KB, y el atributo alt, un texto que sirve para describir la imágen .</p>
+                    
+                <h4>Contenido </h4>
+                    <p>Por último, es importante revisar los contenidos que se están trabajando en el sitio web. Para ello, se debe revisar las palabras clave que se están trabajando, asegurándose de que aparecen en número de veces significativo, revisar la estructura de encabezados (principalmente H1,H2 y H3),  revisar que no haya faltas de ortografía, ni oraciones más escritas, así como el uso de negrita.</p>
+
+    </main>
+</body>
+</html>
